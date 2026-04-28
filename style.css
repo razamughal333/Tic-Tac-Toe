@@ -75,9 +75,14 @@ body {
   border-radius: 0.7rem;
 }
 
+h1 {
+  margin-top: 1rem;
+}
+
 .reset-btn {
   color: #b0413e;
   padding: 0.7rem;
   font-size: 1.1rem;
   background-color: #191913;
+  margin: 1rem;
 }
