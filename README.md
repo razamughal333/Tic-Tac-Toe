@@ -1,4 +1,4 @@
-# Tic Tac Toe 🎮
+# Tic Tac Toe
 
 A clean, browser-based Tic Tac Toe game built with vanilla HTML, CSS, and JavaScript. Two players take turns on the same device — no server, no install required.
 
@@ -60,8 +60,8 @@ The game checks these 8 combinations after every move:
 | Left column   | 0, 3, 6   |
 | Middle column | 1, 4, 7   |
 | Right column  | 2, 5, 8   |
-| Diagonal ↘    | 0, 4, 8   |
-| Diagonal ↙    | 2, 4, 6   |
+| Diagonal      | 0, 4, 8   |
+| Diagonal      | 2, 4, 6   |
 
 ---
 
