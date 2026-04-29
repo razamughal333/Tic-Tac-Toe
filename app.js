@@ -3,9 +3,15 @@ let resetBtn = document.querySelector(".reset-btn");
 let newGameBtn = document.querySelector(".new-game");
 let msgContainer = document.querySelector(".msg-container");
 let msg = document.querySelector(".msg");
+let mainEl = document.querySelector("main");
 
-let turnO = true; //playerX, playerO
-let count = 0; //To Track Draw
+//player o, player x
+let turnO = true;
+let count = 0;
+
+// Score tracking
+let scoreX = 0;
+let scoreO = 0;
 
 const winPatterns = [
   [0, 1, 2],
@@ -23,16 +29,15 @@ const resetGame = () => {
   count = 0;
   enableBoxes();
   msgContainer.classList.add("hide");
+  mainEl.classList.remove("hide");
 };
 
 boxes.forEach((box) => {
   box.addEventListener("click", () => {
     if (turnO) {
-      //playerO
       box.innerText = "O";
       turnO = false;
     } else {
-      //playerX
       box.innerText = "X";
       turnO = true;
     }
@@ -48,7 +53,8 @@ boxes.forEach((box) => {
 });
 
 const gameDraw = () => {
-  msg.innerText = `Game was a Draw.`;
+  msg.innerText = `It's a Draw!`;
+  mainEl.classList.add("hide");
   msgContainer.classList.remove("hide");
   disableBoxes();
 };
@@ -67,9 +73,19 @@ const enableBoxes = () => {
 };
 
 const showWinner = (winner) => {
-  msg.innerText = `Congratulations, Winner is ${winner}`;
+  msg.innerText = `Player ${winner} Wins!`;
+  mainEl.classList.add("hide");
   msgContainer.classList.remove("hide");
   disableBoxes();
+
+  // Update score
+  if (winner === "X") {
+    scoreX++;
+    document.getElementById("playerX").innerText = scoreX;
+  } else {
+    scoreO++;
+    document.getElementById("playerO").innerText = scoreO;
+  }
 };
 
 const checkWinner = () => {
